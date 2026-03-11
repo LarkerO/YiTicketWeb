@@ -27,7 +27,11 @@ export default function HomePage() {
   return (
     <div>
       {/* header */}
-      <div className="bg-italo-800 px-6 pb-8 pt-14 text-white">
+      <div className="relative overflow-hidden bg-italo-800 px-6 pb-10 pt-14 text-white">
+        {/* light arc like the reference (top-left + top-right shapes) */}
+        <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/10" />
+        <div className="pointer-events-none absolute -right-40 -top-44 h-[420px] w-[420px] rounded-full bg-white/10" />
+
         <div className="text-[44px] font-extrabold tracking-wide">.Italo</div>
         <div className="-mt-1 text-sm opacity-90">意大利高速列车</div>
       </div>
@@ -35,7 +39,7 @@ export default function HomePage() {
       <div className="-mt-10 px-4">
         <div className="yt-card p-5">
           <button
-            className="flex w-full items-center justify-between py-3 text-left"
+            className="flex w-full items-center justify-between rounded-xl3 px-1 py-3 text-left"
             onClick={() => navigate(`/stations?type=from&current=${fromId}`)}
           >
             <div>
@@ -45,9 +49,9 @@ export default function HomePage() {
             <span className="text-gray-400">▾</span>
           </button>
 
-          <div className="my-3 flex items-center justify-center">
+          <div className="my-4 flex items-center justify-center">
             <button
-              className="h-12 w-12 rounded-full bg-italo-50 text-italo-800 shadow"
+              className="h-12 w-12 rounded-full bg-rose-50 text-italo-800 shadow"
               onClick={() => {
                 setFromId(toId)
                 setToId(fromId)
@@ -59,7 +63,7 @@ export default function HomePage() {
           </div>
 
           <button
-            className="flex w-full items-center justify-between py-3 text-left"
+            className="flex w-full items-center justify-between rounded-xl3 px-1 py-3 text-left"
             onClick={() => navigate(`/stations?type=to&current=${toId}`)}
           >
             <div>
@@ -83,12 +87,13 @@ export default function HomePage() {
               onClick={() => setOpenPassengers(true)}
             >
               <div className="text-sm text-gray-800">{passengersText}</div>
-              <span className="text-gray-400">+</span>
+              <span className="text-gray-400">＋</span>
             </button>
           </div>
 
-          <button className="yt-primary-btn mt-5 w-full" onClick={() => navigate('/trips')}>
-            搜索
+          <button className="yt-primary-btn mt-5 flex w-full items-center justify-center gap-2" onClick={() => navigate('/trips')}>
+            <span>搜索</span>
+            <span aria-hidden>🔎</span>
           </button>
         </div>
 
@@ -110,12 +115,17 @@ export default function HomePage() {
         </div>
 
         <div className="mt-5 yt-card p-4">
-          <div className="h-28 rounded-xl3 bg-[linear-gradient(90deg,#fff,#f1f2f4)]" />
-          <div className="mt-2 text-xs text-italo-800">ITALO线路图</div>
+          <div className="relative h-28 overflow-hidden rounded-xl3 bg-[linear-gradient(90deg,#fff,#f1f2f4)]">
+            {/* map placeholder lines */}
+            <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(90deg,transparent,transparent_8px,#e5e7eb_8px,#e5e7eb_9px,transparent_9px)]" />
+            <div className="absolute bottom-3 left-3 rounded-full bg-italo-800 px-3 py-1 text-[10px] font-semibold text-white">
+              ITALO线路图
+            </div>
+          </div>
         </div>
 
-        <div className="mt-5 text-sm font-semibold text-italo-800">常见问题</div>
-        <div className="mt-2 yt-card divide-y divide-gray-100">
+        <div className="mt-6 text-sm font-semibold text-italo-800">常见问题</div>
+        <div className="mt-3 yt-card overflow-hidden">
           {[
             '车票需要打印吗？',
             'italo小程序购票怎么选座？',
@@ -123,10 +133,14 @@ export default function HomePage() {
             '可以带宠物上车吗？',
             '儿童可以免费吗？',
             'Italo有哪些车厢等级？区别是什么？',
-          ].map((q) => (
-            <button key={q} className="flex w-full items-center justify-between px-4 py-4 text-left">
+          ].map((q, idx, arr) => (
+            <button
+              key={q}
+              className="flex w-full items-center justify-between px-5 py-5 text-left"
+              style={{ borderBottom: idx === arr.length - 1 ? 'none' : '1px solid #f1f2f4' }}
+            >
               <span className="text-sm text-gray-800">{q}</span>
-              <span className="text-gray-400">›</span>
+              <span className="text-gray-300">›</span>
             </button>
           ))}
         </div>
