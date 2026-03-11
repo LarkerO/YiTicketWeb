@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC",
+    "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+}
+
+/* Mobile shell */
+.yt-phone {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #f3f4f6;
+}
+
+/* Italo-like primary button */
+.yt-primary-btn {
+  @apply bg-italo-800 text-white rounded-xl2 py-4 text-base font-semibold shadow-card;
+}
+
+.yt-card {
+  @apply bg-white rounded-xl2 shadow-card;
+}
+
+.yt-muted {
+  @apply text-gray-500;
+}
