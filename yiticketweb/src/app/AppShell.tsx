@@ -5,13 +5,12 @@ function TabItem({ to, label }: { to: string; label: string }) {
     <NavLink
       to={to}
       className={({ isActive }: { isActive: boolean }) =>
-        `flex flex-1 flex-col items-center justify-center gap-1 py-2 text-xs ${
-          isActive ? 'text-italo-800' : 'text-gray-400'
+        `flex flex-1 flex-col items-center justify-center py-2 text-xs ${
+          isActive ? 'text-italo-800 font-semibold' : 'text-gray-400'
         }`
       }
       end
     >
-      <span className={`h-2 w-2 rounded-full ${'opacity-0'}`} />
       <span className="leading-none">{label}</span>
     </NavLink>
   )
@@ -30,7 +29,7 @@ export default function AppShell() {
 
       {showTabBar && (
         <div className="fixed bottom-0 left-0 right-0">
-          <div className="mx-auto flex h-16 max-w-[420px] items-center border-t border-gray-200 bg-white">
+          <div className="mx-auto flex h-[62px] max-w-[420px] items-center border-t border-gray-100 bg-white/95 backdrop-blur">
             <TabItem to="/" label="首页" />
             <TabItem to="/orders" label="订单" />
             <TabItem to="/me" label="我的" />

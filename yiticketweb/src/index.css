@@ -17,7 +17,8 @@ body {
 
 body {
   margin: 0;
-  background: #f3f4f6;
+  background: radial-gradient(1200px 600px at 50% -200px, rgba(140, 27, 27, 0.12), rgba(243, 244, 246, 0) 60%),
+    #f3f4f6;
 }
 
 /* Mobile shell */
@@ -31,11 +32,11 @@ body {
 
 /* Italo-like primary button */
 .yt-primary-btn {
-  @apply bg-italo-800 text-white rounded-xl2 py-4 text-base font-semibold shadow-card;
+  @apply bg-italo-800 text-white rounded-xl3 py-4 text-base font-semibold shadow-soft;
 }
 
 .yt-card {
-  @apply bg-white rounded-xl2 shadow-card;
+  @apply bg-white rounded-xl3 shadow-soft;
 }
 
 .yt-muted {

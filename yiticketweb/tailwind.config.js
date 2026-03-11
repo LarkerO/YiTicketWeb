@@ -18,10 +18,12 @@ export default {
         },
       },
       boxShadow: {
-        card: '0 6px 16px rgba(0,0,0,0.08)',
+        card: '0 10px 26px rgba(0,0,0,0.10)',
+        soft: '0 12px 30px rgba(0,0,0,0.08)',
       },
       borderRadius: {
-        xl2: '16px',
+        xl2: '18px',
+        xl3: '22px',
       },
     },
   },

@@ -27,27 +27,27 @@ export default function HomePage() {
   return (
     <div>
       {/* header */}
-      <div className="bg-italo-800 px-4 pb-5 pt-10 text-white">
-        <div className="text-3xl font-extrabold tracking-wide">.Italo</div>
-        <div className="mt-1 text-sm opacity-90">意大利高速列车</div>
+      <div className="bg-italo-800 px-6 pb-8 pt-14 text-white">
+        <div className="text-[44px] font-extrabold tracking-wide">.Italo</div>
+        <div className="-mt-1 text-sm opacity-90">意大利高速列车</div>
       </div>
 
-      <div className="-mt-6 px-4">
-        <div className="yt-card p-4">
+      <div className="-mt-10 px-4">
+        <div className="yt-card p-5">
           <button
-            className="flex w-full items-center justify-between rounded-xl bg-white py-3 text-left"
+            className="flex w-full items-center justify-between py-3 text-left"
             onClick={() => navigate(`/stations?type=from&current=${fromId}`)}
           >
             <div>
-              <div className="text-base font-semibold">{from.nameEn}</div>
+              <div className="text-lg font-semibold text-gray-900">{from.nameEn}</div>
               <div className="text-xs text-gray-500">{from.nameZh}</div>
             </div>
             <span className="text-gray-400">▾</span>
           </button>
 
-          <div className="my-2 flex items-center justify-center">
+          <div className="my-3 flex items-center justify-center">
             <button
-              className="rounded-full bg-italo-50 px-3 py-2 text-italo-800"
+              className="h-12 w-12 rounded-full bg-italo-50 text-italo-800 shadow"
               onClick={() => {
                 setFromId(toId)
                 setToId(fromId)
@@ -59,19 +59,19 @@ export default function HomePage() {
           </div>
 
           <button
-            className="flex w-full items-center justify-between rounded-xl bg-white py-3 text-left"
+            className="flex w-full items-center justify-between py-3 text-left"
             onClick={() => navigate(`/stations?type=to&current=${toId}`)}
           >
             <div>
-              <div className="text-base font-semibold">{to.nameEn}</div>
+              <div className="text-lg font-semibold text-gray-900">{to.nameEn}</div>
               <div className="text-xs text-gray-500">{to.nameZh}</div>
             </div>
             <span className="text-gray-400">▾</span>
           </button>
 
-          <div className="mt-3 grid grid-cols-1 gap-2">
+          <div className="mt-3 grid grid-cols-1 gap-3">
             <button
-              className="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-3 py-3 text-left"
+              className="flex items-center justify-between rounded-xl3 border border-gray-200 bg-white px-4 py-4 text-left"
               onClick={() => navigate('/date-time')}
             >
               <div className="text-sm text-gray-800">{dateText}</div>
@@ -79,7 +79,7 @@ export default function HomePage() {
             </button>
 
             <button
-              className="flex items-center justify-between rounded-xl border border-gray-200 bg-white px-3 py-3 text-left"
+              className="flex items-center justify-between rounded-xl3 border border-gray-200 bg-white px-4 py-4 text-left"
               onClick={() => setOpenPassengers(true)}
             >
               <div className="text-sm text-gray-800">{passengersText}</div>
@@ -87,27 +87,30 @@ export default function HomePage() {
             </button>
           </div>
 
-          <button
-            className="mt-4 w-full rounded-xl2 bg-italo-800 py-4 text-base font-semibold text-white"
-            onClick={() => navigate('/trips')}
-          >
+          <button className="yt-primary-btn mt-5 w-full" onClick={() => navigate('/trips')}>
             搜索
           </button>
         </div>
 
-        <div className="mt-4 grid grid-cols-2 gap-3">
+        <div className="mt-5 grid grid-cols-2 gap-4">
           <div className="yt-card overflow-hidden">
-            <div className="h-24 bg-gradient-to-br from-italo-800 to-italo-600" />
-            <div className="p-3 text-sm font-semibold">高铁上的专属美食体验Italo Selection</div>
+            <div className="h-24 bg-[radial-gradient(circle_at_30%_30%,#b11f1f,#741a1a)]" />
+            <div className="p-4 text-sm font-semibold">
+              高铁上的专属美食体验
+              <div className="font-extrabold">Italo Selection</div>
+            </div>
           </div>
           <div className="yt-card overflow-hidden">
-            <div className="h-24 bg-[linear-gradient(135deg,#f3f4f6,#e5e7eb)]" />
-            <div className="p-3 text-sm font-semibold">豪华行政舱舱位 Executive</div>
+            <div className="h-24 bg-[linear-gradient(135deg,#f4f5f7,#e6e7eb)]" />
+            <div className="p-4 text-sm font-semibold">
+              豪华行政舱舱位
+              <div className="font-extrabold">Executive</div>
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 yt-card p-3">
-          <div className="h-28 rounded-xl bg-[linear-gradient(90deg,#fff,#f3f4f6)]" />
+        <div className="mt-5 yt-card p-4">
+          <div className="h-28 rounded-xl3 bg-[linear-gradient(90deg,#fff,#f1f2f4)]" />
           <div className="mt-2 text-xs text-italo-800">ITALO线路图</div>
         </div>
 
